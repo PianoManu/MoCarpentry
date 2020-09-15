@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "contains_block=true": { "model": "mocarpentry:block/pillar_frame" },
+    "contains_block=false,connected_up=true,connected_down=true": { "model": "mocarpentry:block/pillar_frame_empty" },
+    "contains_block=false,connected_up=false,connected_down=true": { "model": "mocarpentry:block/pillar_frame_empty_up" },
+    "contains_block=false,connected_up=true,connected_down=false": { "model": "mocarpentry:block/pillar_frame_empty_down" },
+    "contains_block=false,connected_up=false,connected_down=false": { "model": "mocarpentry:block/pillar_frame_empty" }
+  }
+}

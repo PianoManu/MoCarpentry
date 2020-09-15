@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mocarpentry:pillar_frame"
+    ]
+  },
+  "criteria": {
+    "has_frameblock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "blockcarpentry:frameblock"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mocarpentry:pillar_frame"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_frameblock",
+      "has_the_recipe"
+    ]
+  ]
+}
