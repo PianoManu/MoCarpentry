@@ -14,7 +14,6 @@ import net.minecraft.client.renderer.model.ItemOverrideList;
 import net.minecraft.client.renderer.model.ModelResourceLocation;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
@@ -29,6 +28,7 @@ import java.util.Random;
 
 /**
  * This class determines the model of the pillar when it does contain a block
+ *
  * @author PianoManu
  * @version 1.0 09/15/20
  */
@@ -70,20 +70,20 @@ public class PillarFrameBakedModel implements IDynamicBakedModel {
                 tintIndex = 1;
             }
             List<BakedQuad> quads = new ArrayList<>();
-            quads.addAll(ModelHelper.createCuboid(2/16f,14/16f,0f,1f,6/16f,10/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(3/16f,13/16f,0f,1f,4/16f,6/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(3/16f,13/16f,0f,1f,10/16f,12/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(4/16f,12/16f,0f,1f,3/16f,4/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(4/16f,12/16f,0f,1f,12/16f,13/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(6/16f,10/16f,0f,1f,2/16f,3/16f,texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(6/16f,10/16f,0f,1f,13/16f,14/16f,texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(2 / 16f, 14 / 16f, 0f, 1f, 6 / 16f, 10 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 4 / 16f, 6 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 10 / 16f, 12 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 3 / 16f, 4 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 12 / 16f, 13 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 2 / 16f, 3 / 16f, texture, tintIndex));
+            quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 13 / 16f, 14 / 16f, texture, tintIndex));
             if (state.get(PillarFrame.CONNECTED_DOWN) && !state.get(PillarFrame.CONNECTED_UP)) {
-                quads.addAll(ModelHelper.createCuboid(1/16f,15/16f,0.5f,1f,0f,1f,texture,tintIndex));
-                quads.addAll(ModelHelper.createCuboid(0f,1f,0.5f,1f,1/16f,15/16f,texture,tintIndex));
+                quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0.5f, 1f, 0f, 1f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(0f, 1f, 0.5f, 1f, 1 / 16f, 15 / 16f, texture, tintIndex));
             }
             if (!state.get(PillarFrame.CONNECTED_DOWN) && state.get(PillarFrame.CONNECTED_UP)) {
-                quads.addAll(ModelHelper.createCuboid(1/16f,15/16f,0f,0.5f,0f,1f,texture,tintIndex));
-                quads.addAll(ModelHelper.createCuboid(0f,1f,0f,0.5f,1/16f,15/16f,texture,tintIndex));
+                quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0f, 0.5f, 0f, 1f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(0f, 1f, 0f, 0.5f, 1 / 16f, 15 / 16f, texture, tintIndex));
             }
             return quads;
 

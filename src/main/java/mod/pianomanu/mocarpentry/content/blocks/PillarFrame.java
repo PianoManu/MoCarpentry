@@ -673,7 +673,7 @@ public class PillarFrame extends mod.pianomanu.blockcarpentry.block.FrameBlock i
     }
 
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        switch(type) {
+        switch (type) {
             case LAND:
                 return false;
             case WATER:
