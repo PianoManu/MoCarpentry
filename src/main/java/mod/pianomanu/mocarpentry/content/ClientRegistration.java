@@ -2,6 +2,7 @@ package mod.pianomanu.mocarpentry.content;
 
 import mod.pianomanu.mocarpentry.MoCarpentry;
 import mod.pianomanu.mocarpentry.content.models.loader.PillarFrameModelLoader;
+import mod.pianomanu.mocarpentry.content.models.loader.VerticalStairsFrameModelLoader;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -27,6 +28,7 @@ public class ClientRegistration {
     @SubscribeEvent
     public static void init(final ModelRegistryEvent event) {
         ModelLoaderRegistry.registerLoader(loc("pillar_frame_loader"), new PillarFrameModelLoader());
+        ModelLoaderRegistry.registerLoader(loc("vertical_stairs_frame_loader"), new VerticalStairsFrameModelLoader());
     }
 
     private static ResourceLocation loc(String path) {

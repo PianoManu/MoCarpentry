@@ -1,9 +1,13 @@
 package mod.pianomanu.mocarpentry.content.blocks;
 
+import static mod.pianomanu.blockcarpentry.util.BCBlockStateProperties.LIGHT_LEVEL;
+
+import javax.annotation.Nullable;
+
+import kirothebluefox.moblocks.MoBlocks;
 import kirothebluefox.moblocks.content.customproperties.CustomBlockStateProperties;
 import kirothebluefox.moblocks.content.customproperties.PillarSize;
 import mod.pianomanu.blockcarpentry.util.BCBlockStateProperties;
-import mod.pianomanu.mocarpentry.MoCarpentry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
@@ -26,10 +30,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-
-import javax.annotation.Nullable;
-
-import static mod.pianomanu.blockcarpentry.util.BCBlockStateProperties.LIGHT_LEVEL;
 
 public class PillarFrame extends mod.pianomanu.blockcarpentry.block.FrameBlock implements IWaterLoggable {
 
@@ -400,7 +400,6 @@ public class PillarFrame extends mod.pianomanu.blockcarpentry.block.FrameBlock i
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         if (state.get(SIZE) == PillarSize.SMALL) {
             if (state.get(CONNECTED_UP)) {
@@ -517,52 +516,52 @@ public class PillarFrame extends mod.pianomanu.blockcarpentry.block.FrameBlock i
     private BlockState getState(BlockState blockstate, IWorld worldIn, BlockPos blockpos) {
         BlockPos blockposnorth = blockpos.north();
         Block blocknorth = worldIn.getBlockState(blockposnorth).getBlock();
-        Boolean northbool = blocknorth.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean northbool = blocknorth.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatenorth = worldIn.getBlockState(blockposnorth);
 
         BlockPos blockposeast = blockpos.east();
         Block blockeast = worldIn.getBlockState(blockposeast).getBlock();
-        Boolean eastbool = blockeast.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean eastbool = blockeast.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstateeast = worldIn.getBlockState(blockposeast);
 
         BlockPos blockpossouth = blockpos.south();
         Block blocksouth = worldIn.getBlockState(blockpossouth).getBlock();
-        Boolean southbool = blocksouth.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean southbool = blocksouth.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatesouth = worldIn.getBlockState(blockpossouth);
 
         BlockPos blockposwest = blockpos.west();
         Block blockwest = worldIn.getBlockState(blockposwest).getBlock();
-        Boolean westbool = blockwest.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean westbool = blockwest.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatewest = worldIn.getBlockState(blockposwest);
 
         BlockPos blockposdown = blockpos.down();
         Block blockdown = worldIn.getBlockState(blockposdown).getBlock();
-        Boolean downbool = blockdown.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean downbool = blockdown.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatedown = worldIn.getBlockState(blockposdown);
 
         BlockPos blockposup = blockpos.up();
         Block blockup = worldIn.getBlockState(blockposup).getBlock();
-        Boolean upbool = blockup.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean upbool = blockup.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstateup = worldIn.getBlockState(blockposup);
 
         BlockPos blockposnorthwest = blockpos.north().west();
         Block blocknorthwest = worldIn.getBlockState(blockposnorthwest).getBlock();
-        Boolean northwestbool = blocknorthwest.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean northwestbool = blocknorthwest.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatenorthwest = worldIn.getBlockState(blockposnorthwest);
 
         BlockPos blockposnortheast = blockpos.north().east();
         Block blocknortheast = worldIn.getBlockState(blockposnortheast).getBlock();
-        Boolean northeastbool = blocknortheast.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean northeastbool = blocknortheast.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatenortheast = worldIn.getBlockState(blockposnortheast);
 
         BlockPos blockpossoutheast = blockpos.south().east();
         Block blocksoutheast = worldIn.getBlockState(blockpossoutheast).getBlock();
-        Boolean southeastbool = blocksoutheast.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean southeastbool = blocksoutheast.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatesoutheast = worldIn.getBlockState(blockpossoutheast);
 
         BlockPos blockpossouthwest = blockpos.south().west();
         Block blocksouthwest = worldIn.getBlockState(blockpossouthwest).getBlock();
-        Boolean southwestbool = blocksouthwest.getTags().contains(new ResourceLocation(MoCarpentry.MODID, "pillars"));
+        Boolean southwestbool = blocksouthwest.getTags().contains(new ResourceLocation(MoBlocks.MODID, "pillars"));
         BlockState blockstatesouthwest = worldIn.getBlockState(blockpossouthwest);
 
         if (upbool && downbool) {

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "contains_block=true": { "model": "mocarpentry:block/vertical_stairs_frame" },
+    "contains_block=false,facing=north": { "model": "mocarpentry:block/vertical_stairs_frame_empty", "y": 90, "uvlock": true},
+    "contains_block=false,facing=south": { "model": "mocarpentry:block/vertical_stairs_frame_empty", "y": 270, "uvlock": true},
+    "contains_block=false,facing=west":  { "model": "mocarpentry:block/vertical_stairs_frame_empty"},
+    "contains_block=false,facing=east":  { "model": "mocarpentry:block/vertical_stairs_frame_empty", "y": 180, "uvlock": true}
+  }
+}
