@@ -1,16 +1,15 @@
 package mod.pianomanu.mocarpentry.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
-
 import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.VertexFormatElement;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.client.model.pipeline.BakedQuadBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Util class for building cuboid shapes
@@ -168,10 +167,10 @@ public class ModelHelper {
         }
         if (up) quads.add(createQuad(NWU, NEU, SEU, SWU, texture, xl*16, xh*16, zl*16, zh*16, tintIndex));
         if (down) quads.add(createQuad(SWD, SED, NED, NWD, texture, xl*16, xh*16, zl*16, zh*16, tintIndex));
-        if (west) quads.add(createQuad(SWU, SWD, NWD, NWU, texture, xl*16, xh*16, 16-yh*16, 16-yl*16, tintIndex));
+        if (west) quads.add(createQuad(SWU, SWD, NWD, NWU, texture, xh*16, xl*16, 16-yh*16, 16-yl*16, tintIndex));
         if (east) quads.add(createQuad(NEU, NED, SED, SEU, texture, xl*16, xh*16, 16-yh*16, 16-yl*16, tintIndex));
         if (north) quads.add(createQuad(NWU, NWD, NED, NEU, texture, zl*16, zh*16, 16-yh*16, 16-yl*16, tintIndex));
-        if (south) quads.add(createQuad(SEU, SED, SWD, SWU, texture, zl*16, zh*16, 16-yh*16, 16-yl*16, tintIndex));
+        if (south) quads.add(createQuad(SEU, SED, SWD, SWU, texture, zh*16, zl*16, 16-yh*16, 16-yl*16, tintIndex));
         return quads;
     }
 

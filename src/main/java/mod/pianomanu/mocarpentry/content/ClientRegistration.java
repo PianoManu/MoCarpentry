@@ -3,6 +3,7 @@ package mod.pianomanu.mocarpentry.content;
 import mod.pianomanu.mocarpentry.MoCarpentry;
 import mod.pianomanu.mocarpentry.content.models.loader.PillarFrameModelLoader;
 import mod.pianomanu.mocarpentry.content.models.loader.VerticalStairsFrameModelLoader;
+import mod.pianomanu.mocarpentry.utils.RenderSetup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientRegistration {
     @SubscribeEvent
     public static void init(FMLClientSetupEvent event) {
+        RenderSetup.setup();
     }
 
     @SubscribeEvent

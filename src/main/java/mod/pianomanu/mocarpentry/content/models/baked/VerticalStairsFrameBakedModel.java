@@ -1,13 +1,5 @@
 package mod.pianomanu.mocarpentry.content.models.baked;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.blockcarpentry.util.TextureHelper;
 import mod.pianomanu.mocarpentry.content.blocks.VerticalStairsFrame;
@@ -26,6 +18,13 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
 import net.minecraftforge.client.model.data.IModelData;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * This class determines the model of the pillar when it does contain a block
@@ -74,7 +73,7 @@ public class VerticalStairsFrameBakedModel implements IDynamicBakedModel {
             switch (state.get(VerticalStairsFrame.HORIZONTAL_FACING)) {
             case NORTH:
                 quads.addAll(ModelHelper.createCuboid16(0, 16, 0, 16, 8, 16, texture, tintIndex, true, true, true, true, true, true));
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, false, true, true, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, true, true, true, true, true));
                 return quads;
             case SOUTH:
                 quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 16, texture, tintIndex, true, true, true, true, true, true));
