@@ -72,20 +72,24 @@ public class VerticalStairsFrameBakedModel implements IDynamicBakedModel {
             List<BakedQuad> quads = new ArrayList<>();
             switch (state.get(VerticalStairsFrame.HORIZONTAL_FACING)) {
             case NORTH:
-                quads.addAll(ModelHelper.createCuboid16(0, 16, 0, 16, 8, 16, texture, tintIndex, true, true, true, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, false, true, false, true, true));
+                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, false, true, true, true, true, true));
                 quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, true, false, true, true, true));
                 return quads;
             case SOUTH:
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 16, texture, tintIndex, true, true, true, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, false, true, false, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, true, true, true, false, true, true));
                 quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, false, true, true, true, true));
                 return quads;
             case EAST:
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 16, texture, tintIndex, true, true, true, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, false, false, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, true, true, false, true, true));
                 quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, false, true, true, true, true, true));
                 return quads;
             case WEST:
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 16, texture, tintIndex, true, true, true, true, true, true));
                 quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, false, true, true, true, true));
+                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, false, true, true, false, true, true));
+                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, true, true, false, true, true, true));
                 return quads;
 			default:
 				return Collections.emptyList();
