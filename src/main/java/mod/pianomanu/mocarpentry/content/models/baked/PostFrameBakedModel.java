@@ -1,9 +1,8 @@
 package mod.pianomanu.mocarpentry.content.models.baked;
 
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
+import mod.pianomanu.blockcarpentry.util.ModelHelper;
 import mod.pianomanu.blockcarpentry.util.TextureHelper;
-import mod.pianomanu.mocarpentry.content.blocks.VerticalStairsFrame;
-import mod.pianomanu.mocarpentry.utils.ModelHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.GrassBlock;
 import net.minecraft.client.Minecraft;
@@ -27,12 +26,12 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * This class determines the model of the vertical stairs when it does contain a block
+ * This class determines the model of the post when it does contain a block
  *
  * @author PianoManu
  * @version 1.1 09/21/20
  */
-public class VerticalStairsFrameBakedModel implements IDynamicBakedModel {
+public class PostFrameBakedModel implements IDynamicBakedModel {
     @Nonnull
     @Override
     public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, @Nonnull Random rand, @Nonnull IModelData extraData) {
@@ -72,31 +71,8 @@ public class VerticalStairsFrameBakedModel implements IDynamicBakedModel {
             if (mimic.getBlock() instanceof GrassBlock) {
                 tintIndex = 1;
             }
-            List<BakedQuad> quads = new ArrayList<>();
-            switch (state.get(VerticalStairsFrame.HORIZONTAL_FACING)) {
-            case NORTH:
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, false, true, false, true, true));
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, false, true, true, true, true, true));
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, true, false, true, true, true));
-                return quads;
-            case SOUTH:
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, false, true, false, true, true, true));
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, true, true, true, false, true, true));
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, false, true, true, true, true));
-                return quads;
-            case EAST:
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 0, 8, texture, tintIndex, true, false, false, true, true, true));
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, true, true, false, true, true));
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, false, true, true, true, true, true));
-                return quads;
-            case WEST:
-                quads.addAll(ModelHelper.createCuboid16(0, 8, 0, 16, 8, 16, texture, tintIndex, true, false, true, true, true, true));
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 8, 16, texture, tintIndex, false, true, true, false, true, true));
-                quads.addAll(ModelHelper.createCuboid16(8, 16, 0, 16, 0, 8, texture, tintIndex, true, true, false, true, true, true));
-                return quads;
-			default:
-				return Collections.emptyList();
-            }
+            return new ArrayList<>(ModelHelper.createCuboid(5/16f,11/16f,0f,1f,5/16f,11/16f,texture,tintIndex));
+
         }
         return Collections.emptyList();
     }

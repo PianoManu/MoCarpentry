@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "contains_block=true": { "model": "mocarpentry:block/post_frame" },
+    "contains_block=false": { "model": "mocarpentry:block/post_frame_empty" }
+  }
+}

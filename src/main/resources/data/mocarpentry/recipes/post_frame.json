@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blockcarpentry:frameblock"
+  },
+  "result": "mocarpentry:post_frame",
+  "count": 1
+}

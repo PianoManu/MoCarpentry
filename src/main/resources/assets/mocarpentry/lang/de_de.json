@@ -1,5 +1,7 @@
 {
 "block.mocarpentry.pillar_frame": "Säulenrahmen",
+"block.mocarpentry.vertical_stairs_frame": "Treppenrahmen (vertikal)",
+"block.mocarpentry.post_frame": "Pfeilerrahmen",
 
 "itemGroup.mocarpentry": "Mo'Carpentry"
 }

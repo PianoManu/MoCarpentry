@@ -1,5 +1,6 @@
 package mod.pianomanu.mocarpentry.content.models.baked;
 
+import kirothebluefox.moblocks.content.customproperties.PillarSize;
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.blockcarpentry.util.ModelHelper;
 import mod.pianomanu.blockcarpentry.util.TextureHelper;
@@ -30,7 +31,7 @@ import java.util.Random;
  * This class determines the model of the pillar when it does contain a block
  *
  * @author PianoManu
- * @version 1.0 09/15/20
+ * @version 1.1 09/21/20
  */
 public class PillarFrameBakedModel implements IDynamicBakedModel {
     @Nonnull
@@ -60,6 +61,9 @@ public class PillarFrameBakedModel implements IDynamicBakedModel {
             List<TextureAtlasSprite> textureList = TextureHelper.getTextureFromModel(model, extraData, rand);
             TextureAtlasSprite texture;
             int tex = extraData.getData(FrameBlockTile.TEXTURE);
+            if (textureList.size() == 0) {
+                return Collections.emptyList();
+            }
             if (textureList.size() > tex) {
                 texture = textureList.get(tex);
             } else {
@@ -70,20 +74,65 @@ public class PillarFrameBakedModel implements IDynamicBakedModel {
                 tintIndex = 1;
             }
             List<BakedQuad> quads = new ArrayList<>();
-            quads.addAll(ModelHelper.createCuboid(2 / 16f, 14 / 16f, 0f, 1f, 6 / 16f, 10 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 4 / 16f, 6 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 10 / 16f, 12 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 3 / 16f, 4 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 12 / 16f, 13 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 2 / 16f, 3 / 16f, texture, tintIndex));
-            quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 13 / 16f, 14 / 16f, texture, tintIndex));
-            if (state.get(PillarFrame.CONNECTED_DOWN) && !state.get(PillarFrame.CONNECTED_UP)) {
-                quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0.5f, 1f, 0f, 1f, texture, tintIndex));
-                quads.addAll(ModelHelper.createCuboid(0f, 1f, 0.5f, 1f, 1 / 16f, 15 / 16f, texture, tintIndex));
-            }
-            if (!state.get(PillarFrame.CONNECTED_DOWN) && state.get(PillarFrame.CONNECTED_UP)) {
-                quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0f, 0.5f, 0f, 1f, texture, tintIndex));
-                quads.addAll(ModelHelper.createCuboid(0f, 1f, 0f, 0.5f, 1 / 16f, 15 / 16f, texture, tintIndex));
+            if (state.get(PillarFrame.SIZE)== PillarSize.SMALL) {
+                quads.addAll(ModelHelper.createCuboid(2 / 16f, 14 / 16f, 0f, 1f, 6 / 16f, 10 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 4 / 16f, 6 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(3 / 16f, 13 / 16f, 0f, 1f, 10 / 16f, 12 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 3 / 16f, 4 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(4 / 16f, 12 / 16f, 0f, 1f, 12 / 16f, 13 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 2 / 16f, 3 / 16f, texture, tintIndex));
+                quads.addAll(ModelHelper.createCuboid(6 / 16f, 10 / 16f, 0f, 1f, 13 / 16f, 14 / 16f, texture, tintIndex));
+                if (state.get(PillarFrame.CONNECTED_DOWN) && !state.get(PillarFrame.CONNECTED_UP)) {
+                    quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0.5f, 1f, 0f, 1f, texture, tintIndex));
+                    quads.addAll(ModelHelper.createCuboid(0f, 1f, 0.5f, 1f, 1 / 16f, 15 / 16f, texture, tintIndex));
+                }
+                if (!state.get(PillarFrame.CONNECTED_DOWN) && state.get(PillarFrame.CONNECTED_UP)) {
+                    quads.addAll(ModelHelper.createCuboid(1 / 16f, 15 / 16f, 0f, 0.5f, 0f, 1f, texture, tintIndex));
+                    quads.addAll(ModelHelper.createCuboid(0f, 1f, 0f, 0.5f, 1 / 16f, 15 / 16f, texture, tintIndex));
+                }
+            } else {
+                switch (state.get(PillarFrame.SIDE)) {
+                    case WEST:
+                        quads.addAll(ModelHelper.createCuboid(0f,3/16f,0f,1f,4/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(3/16f,6/16f,0f,1f,5/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(6/16f,7/16f,0f,1f,6/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(7/16f,8/16f,0f,1f,7/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(8/16f,9/16f,0f,1f,8/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(9/16f,10/16f,0f,1f,9/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(10/16f,11/16f,0f,1f,10/16f,1f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(11/16f,12/16f,0f,1f,13/16f,1f,texture, tintIndex));
+                        break;
+                    case SOUTH:
+                        quads.addAll(ModelHelper.createCuboid(4/16f,1f,0f,1f,13/16f,1f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(5/16f,1f,0f,1f,10/16f,13/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(6/16f,1f,0f,1f,9/16f,10/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(7/16f,1f,0f,1f,8/16f,9/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(8/16f,1f,0f,1f,7/16f,8/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(9/16f,1f,0f,1f,6/16f,7/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(10/16f,1f,0f,1f,5/16f,6/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(13/16f,1f,0f,1f,4/16f,5/16f,texture,tintIndex));
+                        break;
+                    case EAST:
+                        quads.addAll(ModelHelper.createCuboid(4/16f,1f,0f,1f,0f,3/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(5/16f,1f,0f,1f,3/16f,6/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(6/16f,1f,0f,1f,6/16f,7/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(7/16f,1f,0f,1f,7/16f,8/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(8/16f,1f,0f,1f,8/16f,9/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(9/16f,1f,0f,1f,9/16f,10/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(10/16f,1f,0f,1f,10/16f,11/16f,texture,tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(13/16f,1f,0f,1f,11/16f,12/16f,texture,tintIndex));
+                        break;
+                    case NORTH:
+                        quads.addAll(ModelHelper.createCuboid(0f,12/16f,0f,1f,0f,3/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,11/16f,0f,1f,3/16f,6/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,10/16f,0f,1f,6/16f,7/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,9/16f,0f,1f,7/16f,8/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,8/16f,0f,1f,8/16f,9/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,7/16f,0f,1f,9/16f,10/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,6/16f,0f,1f,10/16f,11/16f,texture, tintIndex));
+                        quads.addAll(ModelHelper.createCuboid(0f,3/16f,0f,1f,11/16f,12/16f,texture, tintIndex));
+                        break;
+                }
             }
             return quads;
 

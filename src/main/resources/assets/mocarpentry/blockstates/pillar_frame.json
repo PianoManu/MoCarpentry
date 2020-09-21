@@ -1,9 +1,25 @@
 {
   "variants": {
     "contains_block=true": { "model": "mocarpentry:block/pillar_frame" },
-    "contains_block=false,connected_up=true,connected_down=true": { "model": "mocarpentry:block/pillar_frame_empty" },
-    "contains_block=false,connected_up=false,connected_down=true": { "model": "mocarpentry:block/pillar_frame_empty_up" },
-    "contains_block=false,connected_up=true,connected_down=false": { "model": "mocarpentry:block/pillar_frame_empty_down" },
-    "contains_block=false,connected_up=false,connected_down=false": { "model": "mocarpentry:block/pillar_frame_empty" }
+    "contains_block=false,connected_up=true,connected_down=true,size=small": { "model": "mocarpentry:block/pillar_frame_empty" },
+    "contains_block=false,connected_up=false,connected_down=true,size=small": { "model": "mocarpentry:block/pillar_frame_empty_up" },
+    "contains_block=false,connected_up=true,connected_down=false,size=small": { "model": "mocarpentry:block/pillar_frame_empty_down" },
+    "contains_block=false,connected_up=false,connected_down=false,size=small": { "model": "mocarpentry:block/pillar_frame_empty" },
+    "contains_block=false,connected_up=true,connected_down=true,size=big,facing=north": { "model": "mocarpentry:block/pillar_frame_large_empty" },
+    "contains_block=false,connected_up=true,connected_down=true,size=big,facing=east": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 90, "uvlock": true },
+    "contains_block=false,connected_up=true,connected_down=true,size=big,facing=south": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 180, "uvlock": true },
+    "contains_block=false,connected_up=true,connected_down=true,size=big,facing=west": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 270, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=false,size=big,facing=north": { "model": "mocarpentry:block/pillar_frame_large_empty" },
+    "contains_block=false,connected_up=false,connected_down=false,size=big,facing=east": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 90, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=false,size=big,facing=south": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 180, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=false,size=big,facing=west": { "model": "mocarpentry:block/pillar_frame_large_empty", "y": 270, "uvlock": true },
+    "contains_block=false,connected_up=true,connected_down=false,size=big,facing=north": { "model": "mocarpentry:block/pillar_frame_large_empty_bottom" },
+    "contains_block=false,connected_up=true,connected_down=false,size=big,facing=east": { "model": "mocarpentry:block/pillar_frame_large_empty_bottom", "y": 90, "uvlock": true },
+    "contains_block=false,connected_up=true,connected_down=false,size=big,facing=south": { "model": "mocarpentry:block/pillar_frame_large_empty_bottom", "y": 180, "uvlock": true },
+    "contains_block=false,connected_up=true,connected_down=false,size=big,facing=west": { "model": "mocarpentry:block/pillar_frame_large_empty_bottom", "y": 270, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=true,size=big,facing=north": { "model": "mocarpentry:block/pillar_frame_large_empty_top" },
+    "contains_block=false,connected_up=false,connected_down=true,size=big,facing=east": { "model": "mocarpentry:block/pillar_frame_large_empty_top", "y": 90, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=true,size=big,facing=south": { "model": "mocarpentry:block/pillar_frame_large_empty_top", "y": 180, "uvlock": true },
+    "contains_block=false,connected_up=false,connected_down=true,size=big,facing=west": { "model": "mocarpentry:block/pillar_frame_large_empty_top", "y": 270, "uvlock": true }
   }
 }
