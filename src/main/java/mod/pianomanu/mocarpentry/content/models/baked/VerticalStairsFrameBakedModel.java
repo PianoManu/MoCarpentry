@@ -58,7 +58,7 @@ public class VerticalStairsFrameBakedModel implements IDynamicBakedModel {
         }
         BlockState mimic = extraData.getData(FrameBlockTile.MIMIC);
         if (mimic != null && state != null) {
-            List<TextureAtlasSprite> textureList = TextureHelper.getTextureListFromBlock(mimic.getBlock());
+            List<TextureAtlasSprite> textureList = TextureHelper.getTextureFromModel(model, extraData, rand);
             TextureAtlasSprite texture;
             int tex = extraData.getData(FrameBlockTile.TEXTURE);
             if (textureList.size() > tex) {

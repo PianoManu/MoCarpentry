@@ -94,10 +94,6 @@ minecraft {
 }
 
 repositories {
-    maven {
-   		url "https://www.cursemaven.com"
-    }
-    
 	flatDir {
 	    dirs 'libs'
 	}
@@ -122,7 +118,7 @@ dependencies {
 
     // These dependencies get remapped to your current MCP mappings
     // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-	implementation fg.deobf("curse.maven:blockcarpentry:3055423")
+	implementation fg.deobf("ignore:blockcarpentry:1.16.2-0.3.0")
 	implementation fg.deobf("ignore:moblocks:v0.8Alpha")
 	
     // For more info...

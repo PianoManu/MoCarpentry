@@ -64,6 +64,6 @@ It adds framed block for Mo'Blocks' block shapes.
 [[dependencies.mocarpentry]]
     modId="blockcarpentry"
     mandatory=true
-    versionRange="[1.16.2-0.2.2]"
+    versionRange="[1.16.2-0.3.0]"
     ordering="NONE"
     side="BOTH"
