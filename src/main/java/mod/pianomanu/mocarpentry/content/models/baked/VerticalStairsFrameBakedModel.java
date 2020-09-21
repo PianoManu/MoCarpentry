@@ -1,5 +1,13 @@
 package mod.pianomanu.mocarpentry.content.models.baked;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.blockcarpentry.util.TextureHelper;
 import mod.pianomanu.mocarpentry.content.blocks.VerticalStairsFrame;
@@ -18,13 +26,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.data.IDynamicBakedModel;
 import net.minecraftforge.client.model.data.IModelData;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
 /**
  * This class determines the model of the pillar when it does contain a block

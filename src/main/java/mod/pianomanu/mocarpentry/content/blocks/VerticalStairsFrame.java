@@ -27,6 +27,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
 
 public class VerticalStairsFrame extends mod.pianomanu.blockcarpentry.block.FrameBlock implements IWaterLoggable {
 	public static final DirectionProperty HORIZONTAL_FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -72,10 +73,13 @@ public class VerticalStairsFrame extends mod.pianomanu.blockcarpentry.block.Fram
 		    return FULL_NORTH_SHAPE;
 		}
 	}
-	
+
 	public VerticalStairsFrame(Properties properties) {
 		super(properties);
-	    this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(BCBlockStateProperties.CONTAINS_BLOCK, false).with(LIGHT_LEVEL, 0));
+	    this.setDefaultState(this.stateContainer.getBaseState().with(HORIZONTAL_FACING, Direction.NORTH)
+	    		.with(WATERLOGGED, Boolean.valueOf(false))
+	    		.with(BCBlockStateProperties.CONTAINS_BLOCK, false)
+	    		.with(LIGHT_LEVEL, 0));
 	}
 	
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
@@ -85,7 +89,8 @@ public class VerticalStairsFrame extends mod.pianomanu.blockcarpentry.block.Fram
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		BlockPos blockpos = context.getPos();
-		FluidState FluidState = context.getWorld().getFluidState(blockpos);
+		World world = context.getWorld();
+		FluidState FluidState = world.getFluidState(blockpos);
 		BlockState blockstate = this.getDefaultState().with(HORIZONTAL_FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(FluidState.getFluid() == Fluids.WATER));
 		float direction = (context.getPlayer().getYaw(1.0F))%360;
 		if (direction < 0) direction += 360.0F;
