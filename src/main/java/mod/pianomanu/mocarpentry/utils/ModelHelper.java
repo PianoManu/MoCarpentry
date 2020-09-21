@@ -193,7 +193,7 @@ public class ModelHelper {
      * @param tintIndex only needed for tintable blocks like grass
      * @return List of baked quads, i.e. List of six faces
      */
-    private static List<BakedQuad> createCuboid(float xl, float xh, float yl, float yh, float zl, float zh, TextureAtlasSprite texture, int tintIndex) {
+    public static List<BakedQuad> createCuboid(float xl, float xh, float yl, float yh, float zl, float zh, TextureAtlasSprite texture, int tintIndex) {
 		return createCuboid(xl, xh, yl, yh, zl, zh, texture, tintIndex, true, true, true, true, true, true);
 	}
 	
