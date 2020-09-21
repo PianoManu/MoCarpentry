@@ -166,7 +166,7 @@ public class ModelHelper {
             zh--;
         }
         if (up) quads.add(createQuad(NWU, NEU, SEU, SWU, texture, xl*16, xh*16, zl*16, zh*16, tintIndex));
-        if (down) quads.add(createQuad(NED, NWD, SWD, SED, texture, zl*16, zh*16, xl*16, xh*16, tintIndex));
+        if (down) quads.add(createQuad(NED, NWD, SWD, SED, texture, xl*16, xh*16, 16-zh*16, 16-zl*16, tintIndex));
         if (west) quads.add(createQuad(SWU, SWD, NWD, NWU, texture, 16-xh*16, 16-xl*16, 16-yh*16, 16-yl*16, tintIndex));
         if (east) quads.add(createQuad(NEU, NED, SED, SEU, texture, xl*16, xh*16, 16-yh*16, 16-yl*16, tintIndex));
         if (north) quads.add(createQuad(NWU, NWD, NED, NEU, texture, zl*16, zh*16, 16-yh*16, 16-yl*16, tintIndex));
