@@ -4,8 +4,8 @@ import static mod.pianomanu.blockcarpentry.util.BCBlockStateProperties.LIGHT_LEV
 
 import java.util.Random;
 
+import kirothebluefox.moblocks.MoBlocks;
 import kirothebluefox.moblocks.content.customproperties.CustomBlockStateProperties;
-import kirothebluefox.moblocks.content.specialblocks.RampBlock;
 import mod.pianomanu.blockcarpentry.block.FrameBlock;
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.blockcarpentry.util.BCBlockStateProperties;
@@ -30,6 +30,7 @@ import net.minecraft.state.properties.StairsShape;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -38,7 +39,6 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
@@ -1381,16 +1381,14 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		Direction direction = state.get(FACING);
 		BlockState blockstateright = worldIn.getBlockState(pos.offset(direction.rotateY()));
 		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
-		if (!((IWorldReader) worldIn).isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateY()));
-            if (tileentity instanceof FrameBlockTile) {
-                frameTileEntity = (FrameBlockTile) tileentity;
-            }
-            if (tileentity1 instanceof FrameBlockTile) {
-                frameTileEntity1 = (FrameBlockTile) tileentity1;
-            }
-		}
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateY()));
+        if (tileentity instanceof FrameBlockTile) {
+            frameTileEntity = (FrameBlockTile) tileentity;
+        }
+        if (tileentity1 instanceof FrameBlockTile) {
+            frameTileEntity1 = (FrameBlockTile) tileentity1;
+        }
 		if (isBlockStairs(state, frameTileEntity, blockstateright, frameTileEntity1) == SameBlock.FALSE ||
 			isBlockStairs(state, frameTileEntity, blockstateright, frameTileEntity1) == SameBlock.TRUE ||
 			blockstateright.get(SHAPE) != StairsShape.STRAIGHT ||
@@ -1404,16 +1402,14 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		Direction direction = state.get(FACING);
 		BlockState blockstateleft = worldIn.getBlockState(pos.offset(direction.rotateYCCW()));
 		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
-		if (!((IWorldReader) worldIn).isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateYCCW()));
-            if (tileentity instanceof FrameBlockTile) {
-                frameTileEntity = (FrameBlockTile) tileentity;
-            }
-            if (tileentity1 instanceof FrameBlockTile) {
-                frameTileEntity1 = (FrameBlockTile) tileentity1;
-            }
-		}
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateYCCW()));
+        if (tileentity instanceof FrameBlockTile) {
+            frameTileEntity = (FrameBlockTile) tileentity;
+        }
+        if (tileentity1 instanceof FrameBlockTile) {
+            frameTileEntity1 = (FrameBlockTile) tileentity1;
+        }
 		if (isBlockStairs(state, frameTileEntity, blockstateleft, frameTileEntity1) == SameBlock.FALSE ||
 			isBlockStairs(state, frameTileEntity, blockstateleft, frameTileEntity1) == SameBlock.TRUE ||
 			blockstateleft.get(SHAPE) != StairsShape.STRAIGHT ||
@@ -1427,19 +1423,19 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		Direction direction = state.get(FACING);
 		BlockState blockstate = worldIn.getBlockState(pos.offset(direction));
 		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null, frameTileEntity2 = null;
-		if (!((IWorldReader) worldIn).isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction));
-            if (tileentity instanceof FrameBlockTile) {
-                frameTileEntity = (FrameBlockTile) tileentity;
-            }
-            if (tileentity1 instanceof FrameBlockTile) {
-                frameTileEntity1 = (FrameBlockTile) tileentity1;
-            }
-		}
-		if (isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.TRUE) && state.get(HALF) == blockstate.get(HALF)) {
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction));
+        if (tileentity instanceof FrameBlockTile) {
+            frameTileEntity = (FrameBlockTile) tileentity;
+        }
+        if (tileentity1 instanceof FrameBlockTile) {
+            frameTileEntity1 = (FrameBlockTile) tileentity1;
+        }
+		if (isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.TRUE) &&
+				state.get(HALF) == blockstate.get(HALF)) {
 			Direction direction1 = blockstate.get(FACING);
-			if (direction1.getAxis() != state.get(FACING).getAxis() && isDifferentStairs(state, worldIn, pos, direction1.getOpposite())) {
+			if (direction1.getAxis() != state.get(FACING).getAxis() &&
+					isDifferentStairs(state, worldIn, pos, direction1.getOpposite())) {
 				if (direction1 == direction.rotateYCCW()) {
 					return StairsShape.OUTER_LEFT;
 				}
@@ -1449,13 +1445,12 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		}
 	
 		BlockState blockstate1 = worldIn.getBlockState(pos.offset(direction.getOpposite()));
-		if (!((IWorldReader) worldIn).isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos.offset(direction.getOpposite()));
-            if (tileentity instanceof FrameBlockTile) {
-            	frameTileEntity2 = (FrameBlockTile) tileentity;
-            }
-		}
-    	if (isBlockStairs(state, frameTileEntity, blockstate1, frameTileEntity2).equals(SameBlock.TRUE) && state.get(HALF) == blockstate1.get(HALF)) {
+        TileEntity tileentity2 = worldIn.getTileEntity(pos.offset(direction.getOpposite()));
+        if (tileentity2 instanceof FrameBlockTile) {
+        	frameTileEntity2 = (FrameBlockTile) tileentity2;
+        }
+    	if (isBlockStairs(state, frameTileEntity, blockstate1, frameTileEntity2).equals(SameBlock.TRUE) &&
+    			state.get(HALF) == blockstate1.get(HALF)) {
 			Direction direction2 = blockstate1.get(FACING);
 			if (direction2.getAxis() != state.get(FACING).getAxis() && isDifferentStairs(state, worldIn, pos, direction2)) {
 				if (direction2 == direction.rotateYCCW()) {
@@ -1472,17 +1467,17 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	private static boolean isDifferentStairs(BlockState state, IBlockReader worldIn, BlockPos pos, Direction face) {
 		BlockState blockstate = worldIn.getBlockState(pos.offset(face));
 		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
-		if (!((IWorldReader) worldIn).isRemote()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(face));
-            if (tileentity instanceof FrameBlockTile) {
-                frameTileEntity = (FrameBlockTile) tileentity;
-            }
-            if (tileentity1 instanceof FrameBlockTile) {
-                frameTileEntity1 = (FrameBlockTile) tileentity1;
-            }
-		}
-		return isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.FALSE) || blockstate.get(FACING) != state.get(FACING) || blockstate.get(HALF) != state.get(HALF);
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(face));
+        if (tileentity instanceof FrameBlockTile) {
+            frameTileEntity = (FrameBlockTile) tileentity;
+        }
+        if (tileentity1 instanceof FrameBlockTile) {
+            frameTileEntity1 = (FrameBlockTile) tileentity1;
+        }
+		return isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.FALSE) ||
+				blockstate.get(FACING) != state.get(FACING) ||
+				blockstate.get(HALF) != state.get(HALF);
 	}
 	
 	public enum SameBlock {
@@ -1492,26 +1487,21 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	}
 
 	public static Enum<SameBlock> isBlockStairs(BlockState thisState, FrameBlockTile thisTileEntity, BlockState state, FrameBlockTile tileEntity) {
-		if (state.getBlock().equals(thisState.getBlock())) {
-			if (tileEntity == null || thisTileEntity == null) {
-				return SameBlock.FALSE;
-			} else {
-				if (tileEntity.getMimic() != null && thisTileEntity.getMimic() != null) {
-					if (tileEntity.getMimic().getBlock() == thisTileEntity.getMimic().getBlock())
-						return SameBlock.TRUE;
-					else
-						return SameBlock.OTHER;
-				} else if (tileEntity.getMimic() != null ^ thisTileEntity.getMimic() != null){
-					return SameBlock.OTHER;
-				} else {
-					return SameBlock.TRUE;
-				}
-			}
-		} else if (state.getBlock() instanceof RampBlock) {
-			return SameBlock.OTHER;
-		} else {
+		if (thisTileEntity == null) {
 			return SameBlock.FALSE;
+		} else if (tileEntity != null) {
+			if (thisTileEntity.getMimic() == null && tileEntity.getMimic() == null) {
+				return SameBlock.TRUE;
+			} else if ((thisTileEntity.getMimic() == null ^ tileEntity.getMimic() == null)) {
+				return SameBlock.OTHER;
+			} else if (thisTileEntity.getMimic().getBlock() == tileEntity.getMimic().getBlock()) {
+				return SameBlock.TRUE;
+			} else if (thisTileEntity.getMimic().getBlock() != tileEntity.getMimic().getBlock() &&
+					state.getBlock().getTags().contains(new ResourceLocation(MoBlocks.MODID, "ramps"))) {
+				return SameBlock.OTHER;
+			}
 		}
+		return SameBlock.FALSE;
 	}
 
 	@SuppressWarnings({ "deprecation", "incomplete-switch" })
