@@ -7,6 +7,7 @@ import java.util.Random;
 import kirothebluefox.moblocks.content.customproperties.CustomBlockStateProperties;
 import kirothebluefox.moblocks.content.specialblocks.RampBlock;
 import mod.pianomanu.blockcarpentry.block.FrameBlock;
+import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.blockcarpentry.util.BCBlockStateProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,6 +27,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.Half;
 import net.minecraft.state.properties.StairsShape;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -36,6 +38,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
@@ -50,6 +53,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	public static final BooleanProperty CONNECTED_RIGHT = CustomBlockStateProperties.CONNECTED_RIGHT;
 	private final Block modelBlock;
 	private final BlockState modelState;
+	private boolean isTransparent = true;
 	
 	/** Straight block
 	* SCBN = Straight block collision boxes, right side up, facing North
@@ -1294,13 +1298,17 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		}
 		return null;
 	}
-	
 
 	public RampFrame(Properties properties, BlockState state) {
 		super(properties);
 	    this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(HALF, Half.BOTTOM).with(SHAPE, StairsShape.STRAIGHT).with(WATERLOGGED, Boolean.valueOf(false)).with(CONNECTED_LEFT, Boolean.valueOf(false)).with(CONNECTED_RIGHT, Boolean.valueOf(false)).with(BCBlockStateProperties.CONTAINS_BLOCK, false).with(LIGHT_LEVEL, 0));
 		this.modelBlock = state.getBlock();
 	    this.modelState = state;
+	}
+	
+	@Override
+	public boolean isTransparent(BlockState state) {
+		return this.isTransparent;
 	}
 	
 	@OnlyIn(Dist.CLIENT)
@@ -1347,9 +1355,13 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		BlockPos blockpos = context.getPos();
 		FluidState ifluidstate = context.getWorld().getFluidState(blockpos);
 		IWorld worldIn = context.getWorld();
-		BlockState blockstate = this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing()).with(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(context.getHitVec().y - (double)blockpos.getY() > 0.5D)) ? Half.BOTTOM : Half.TOP).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+		BlockState blockstate = this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing())
+				.with(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(context.getHitVec().y - (double)blockpos.getY() > 0.5D)) ? Half.BOTTOM : Half.TOP)
+				.with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
 		
-		return blockstate.with(CONNECTED_RIGHT, getRightConnection(blockstate, worldIn, blockpos)).with(CONNECTED_LEFT, getLeftConnection(blockstate, worldIn, blockpos)).with(SHAPE, getShapeProperty(blockstate, context.getWorld(), blockpos));
+		return blockstate.with(CONNECTED_RIGHT, getRightConnection(blockstate, worldIn, blockpos))
+				.with(CONNECTED_LEFT, getLeftConnection(blockstate, worldIn, blockpos))
+				.with(SHAPE, getShapeProperty(blockstate, context.getWorld(), blockpos));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -1358,14 +1370,29 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
 		}
 		
-		return facing.getAxis().isHorizontal() ? stateIn.with(CONNECTED_RIGHT, getRightConnection(stateIn, worldIn, currentPos)).with(CONNECTED_LEFT, getLeftConnection(stateIn, worldIn, currentPos)).with(SHAPE, getShapeProperty(stateIn, worldIn, currentPos)) : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+		return facing.getAxis().isHorizontal() ?
+				stateIn.with(CONNECTED_RIGHT, getRightConnection(stateIn, worldIn, currentPos))
+				.with(CONNECTED_LEFT, getLeftConnection(stateIn, worldIn, currentPos))
+				.with(SHAPE, getShapeProperty(stateIn, worldIn, currentPos)) :
+					super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
 
 	private static Boolean getRightConnection(BlockState state, IWorld worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);
 		BlockState blockstateright = worldIn.getBlockState(pos.offset(direction.rotateY()));
-		if (isBlockStairs(state, blockstateright) == SameBlock.FALSE ||
-			isBlockStairs(state, blockstateright) == SameBlock.TRUE ||
+		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
+		if (!((IWorldReader) worldIn).isRemote()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateY()));
+            if (tileentity instanceof FrameBlockTile) {
+                frameTileEntity = (FrameBlockTile) tileentity;
+            }
+            if (tileentity1 instanceof FrameBlockTile) {
+                frameTileEntity1 = (FrameBlockTile) tileentity1;
+            }
+		}
+		if (isBlockStairs(state, frameTileEntity, blockstateright, frameTileEntity1) == SameBlock.FALSE ||
+			isBlockStairs(state, frameTileEntity, blockstateright, frameTileEntity1) == SameBlock.TRUE ||
 			blockstateright.get(SHAPE) != StairsShape.STRAIGHT ||
 			blockstateright.get(FACING) != direction.rotateY()) {
 			return false;
@@ -1376,8 +1403,19 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	private static Boolean getLeftConnection(BlockState state, IWorld worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);
 		BlockState blockstateleft = worldIn.getBlockState(pos.offset(direction.rotateYCCW()));
-		if (isBlockStairs(state, blockstateleft) == SameBlock.FALSE ||
-			isBlockStairs(state, blockstateleft) == SameBlock.TRUE ||
+		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
+		if (!((IWorldReader) worldIn).isRemote()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction.rotateYCCW()));
+            if (tileentity instanceof FrameBlockTile) {
+                frameTileEntity = (FrameBlockTile) tileentity;
+            }
+            if (tileentity1 instanceof FrameBlockTile) {
+                frameTileEntity1 = (FrameBlockTile) tileentity1;
+            }
+		}
+		if (isBlockStairs(state, frameTileEntity, blockstateleft, frameTileEntity1) == SameBlock.FALSE ||
+			isBlockStairs(state, frameTileEntity, blockstateleft, frameTileEntity1) == SameBlock.TRUE ||
 			blockstateleft.get(SHAPE) != StairsShape.STRAIGHT ||
 			blockstateleft.get(FACING) != direction.rotateYCCW()) {
 			return false;
@@ -1388,7 +1426,18 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	private static StairsShape getShapeProperty(BlockState state, IWorld worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);
 		BlockState blockstate = worldIn.getBlockState(pos.offset(direction));
-		if (isBlockStairs(state, blockstate).equals(SameBlock.TRUE) && state.get(HALF) == blockstate.get(HALF)) {
+		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null, frameTileEntity2 = null;
+		if (!((IWorldReader) worldIn).isRemote()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(direction));
+            if (tileentity instanceof FrameBlockTile) {
+                frameTileEntity = (FrameBlockTile) tileentity;
+            }
+            if (tileentity1 instanceof FrameBlockTile) {
+                frameTileEntity1 = (FrameBlockTile) tileentity1;
+            }
+		}
+		if (isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.TRUE) && state.get(HALF) == blockstate.get(HALF)) {
 			Direction direction1 = blockstate.get(FACING);
 			if (direction1.getAxis() != state.get(FACING).getAxis() && isDifferentStairs(state, worldIn, pos, direction1.getOpposite())) {
 				if (direction1 == direction.rotateYCCW()) {
@@ -1400,7 +1449,13 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		}
 	
 		BlockState blockstate1 = worldIn.getBlockState(pos.offset(direction.getOpposite()));
-		if (isBlockStairs(state, blockstate1).equals(SameBlock.TRUE) && state.get(HALF) == blockstate1.get(HALF)) {
+		if (!((IWorldReader) worldIn).isRemote()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos.offset(direction.getOpposite()));
+            if (tileentity instanceof FrameBlockTile) {
+            	frameTileEntity2 = (FrameBlockTile) tileentity;
+            }
+		}
+    	if (isBlockStairs(state, frameTileEntity, blockstate1, frameTileEntity2).equals(SameBlock.TRUE) && state.get(HALF) == blockstate1.get(HALF)) {
 			Direction direction2 = blockstate1.get(FACING);
 			if (direction2.getAxis() != state.get(FACING).getAxis() && isDifferentStairs(state, worldIn, pos, direction2)) {
 				if (direction2 == direction.rotateYCCW()) {
@@ -1416,7 +1471,18 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 
 	private static boolean isDifferentStairs(BlockState state, IBlockReader worldIn, BlockPos pos, Direction face) {
 		BlockState blockstate = worldIn.getBlockState(pos.offset(face));
-		return isBlockStairs(state, blockstate).equals(SameBlock.FALSE) || blockstate.get(FACING) != state.get(FACING) || blockstate.get(HALF) != state.get(HALF);
+		FrameBlockTile frameTileEntity = null, frameTileEntity1 = null;
+		if (!((IWorldReader) worldIn).isRemote()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            TileEntity tileentity1 = worldIn.getTileEntity(pos.offset(face));
+            if (tileentity instanceof FrameBlockTile) {
+                frameTileEntity = (FrameBlockTile) tileentity;
+            }
+            if (tileentity1 instanceof FrameBlockTile) {
+                frameTileEntity1 = (FrameBlockTile) tileentity1;
+            }
+		}
+		return isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.FALSE) || blockstate.get(FACING) != state.get(FACING) || blockstate.get(HALF) != state.get(HALF);
 	}
 	
 	public enum SameBlock {
@@ -1425,9 +1491,22 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 	    FALSE
 	}
 
-	public static Enum<SameBlock> isBlockStairs(BlockState thisState, BlockState state) {
+	public static Enum<SameBlock> isBlockStairs(BlockState thisState, FrameBlockTile thisTileEntity, BlockState state, FrameBlockTile tileEntity) {
 		if (state.getBlock().equals(thisState.getBlock())) {
-			return SameBlock.TRUE;
+			if (tileEntity == null || thisTileEntity == null) {
+				return SameBlock.FALSE;
+			} else {
+				if (tileEntity.getMimic() != null && thisTileEntity.getMimic() != null) {
+					if (tileEntity.getMimic().getBlock() == thisTileEntity.getMimic().getBlock())
+						return SameBlock.TRUE;
+					else
+						return SameBlock.OTHER;
+				} else if (tileEntity.getMimic() != null ^ thisTileEntity.getMimic() != null){
+					return SameBlock.OTHER;
+				} else {
+					return SameBlock.TRUE;
+				}
+			}
 		} else if (state.getBlock() instanceof RampBlock) {
 			return SameBlock.OTHER;
 		} else {
@@ -1440,7 +1519,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		Direction direction = state.get(FACING);
 		StairsShape stairsshape = state.get(SHAPE);
 		switch(mirrorIn) {
-			case LEFT_RIGHT:
+		case LEFT_RIGHT:
 			if (direction.getAxis() == Direction.Axis.Z) {
 				switch(stairsshape) {
 					case INNER_LEFT:
@@ -1456,7 +1535,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 				}
 			}
 			break;
-			case FRONT_BACK:
+		case FRONT_BACK:
 			if (direction.getAxis() == Direction.Axis.X) {
 				switch(stairsshape) {
 					case INNER_LEFT:

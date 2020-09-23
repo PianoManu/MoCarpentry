@@ -147,23 +147,29 @@ public class ModelHelper {
         Vector3d SEU = v(xh,yh,zh);
         Vector3d SWD = v(xh,yl,zl);
         Vector3d SED = v(xh,yl,zh); //South-East-Down
-        if(xl < 0) {
+        while(xl < 0) {
             xl++;
+            xh++;
         }
-        if(xh > 1) {
+        while(xh > 1) {
             xh--;
+            xl--;
         }
-        if(yl < 0) {
+        while(yl < 0) {
             yl++;
+            yh++;
         }
-        if(yh > 1) {
+        while(yh > 1) {
             yh--;
+            yl--;
         }
-        if(zl < 0) {
+        while(zl < 0) {
             zl++;
+            zh++;
         }
-        if(zh > 1) {
+        while(zh > 1) {
             zh--;
+            zl--;
         }
         if (up) quads.add(createQuad(NWU, NEU, SEU, SWU, texture, xl*16, xh*16, zl*16, zh*16, tintIndex));
         if (down) quads.add(createQuad(NED, NWD, SWD, SED, texture, xl*16, xh*16, 16-zh*16, 16-zl*16, tintIndex));
