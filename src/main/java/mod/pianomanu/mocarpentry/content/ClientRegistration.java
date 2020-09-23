@@ -3,6 +3,7 @@ package mod.pianomanu.mocarpentry.content;
 import mod.pianomanu.mocarpentry.MoCarpentry;
 import mod.pianomanu.mocarpentry.content.models.loader.PillarFrameModelLoader;
 import mod.pianomanu.mocarpentry.content.models.loader.PostFrameModelLoader;
+import mod.pianomanu.mocarpentry.content.models.loader.RampFrameModelLoader;
 import mod.pianomanu.mocarpentry.content.models.loader.VerticalStairsFrameModelLoader;
 import mod.pianomanu.mocarpentry.utils.RenderSetup;
 import net.minecraft.util.ResourceLocation;
@@ -33,6 +34,7 @@ public class ClientRegistration {
         ModelLoaderRegistry.registerLoader(loc("pillar_frame_loader"), new PillarFrameModelLoader());
         ModelLoaderRegistry.registerLoader(loc("vertical_stairs_frame_loader"), new VerticalStairsFrameModelLoader());
         ModelLoaderRegistry.registerLoader(loc("post_frame_loader"), new PostFrameModelLoader());
+        ModelLoaderRegistry.registerLoader(loc("ramp_frame_loader"), new RampFrameModelLoader());
     }
 
     private static ResourceLocation loc(String path) {
