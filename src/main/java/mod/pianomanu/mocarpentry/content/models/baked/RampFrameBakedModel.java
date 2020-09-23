@@ -215,19 +215,143 @@ public class RampFrameBakedModel implements IDynamicBakedModel {
 				case BOTTOM:
 					switch (facing) {
 					case EAST:
+						int[][] listOfCuboids = {{0, 0, 0, 1, 1, 16},
+						        {1, 1, 0, 2, 2, 16},
+						        {6, 6, 0, 7, 7, 16},
+						        {7, 7, 0, 8, 8, 16},
+						        {4, 4, 0, 5, 5, 16},
+						        {5, 5, 0, 6, 6, 16},
+						        {2, 2, 0, 3, 3, 16},
+						        {3, 3, 0, 4, 4, 16},
+						        {14, 14, 0, 15, 15, 16},
+						        {15, 15, 0, 16, 16, 16},
+						        {12, 12, 0, 13, 13, 16},
+						        {13, 13, 0, 14, 14, 16},
+						        {10, 10, 0, 11, 11, 16},
+						        {9, 9, 0, 10, 10, 16},
+						        {8, 8, 0, 9, 9, 16},
+						        {11, 11, 0, 12, 12, 16},
+						        {15, 0, 0, 16, 15, 16},
+						        {1, 0, 0, 2, 1, 16},
+						        {6, 0, 0, 7, 6, 16},
+						        {7, 0, 0, 8, 7, 16},
+						        {4, 0, 0, 5, 4, 16},
+						        {5, 0, 0, 6, 5, 16},
+						        {2, 0, 0, 3, 2, 16},
+						        {3, 0, 0, 4, 3, 16},
+						        {14, 0, 0, 15, 14, 16},
+						        {12, 0, 0, 13, 12, 16},
+						        {13, 0, 0, 14, 13, 16},
+						        {10, 0, 0, 11, 10, 16},
+						        {9, 0, 0, 10, 9, 16},
+						        {8, 0, 0, 9, 8, 16},
+						        {11, 0, 0, 12, 11, 16}};
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[0][0], listOfCuboids[0][3], listOfCuboids[0][1], listOfCuboids[0][4], listOfCuboids[0][2], listOfCuboids[0][5], texture, tintIndex, true, false, true, true, true, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[1][0], listOfCuboids[1][3], listOfCuboids[1][1], listOfCuboids[1][4], listOfCuboids[1][2], listOfCuboids[1][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[2][0], listOfCuboids[2][3], listOfCuboids[2][1], listOfCuboids[2][4], listOfCuboids[2][2], listOfCuboids[2][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[3][0], listOfCuboids[3][3], listOfCuboids[3][1], listOfCuboids[3][4], listOfCuboids[3][2], listOfCuboids[3][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[4][0], listOfCuboids[4][3], listOfCuboids[4][1], listOfCuboids[4][4], listOfCuboids[4][2], listOfCuboids[4][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[5][0], listOfCuboids[5][3], listOfCuboids[5][1], listOfCuboids[5][4], listOfCuboids[5][2], listOfCuboids[5][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[6][0], listOfCuboids[6][3], listOfCuboids[6][1], listOfCuboids[6][4], listOfCuboids[6][2], listOfCuboids[6][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[7][0], listOfCuboids[7][3], listOfCuboids[7][1], listOfCuboids[7][4], listOfCuboids[7][2], listOfCuboids[7][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[8][0], listOfCuboids[8][3], listOfCuboids[8][1], listOfCuboids[8][4], listOfCuboids[8][2], listOfCuboids[8][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[9][0], listOfCuboids[9][3], listOfCuboids[9][1], listOfCuboids[9][4], listOfCuboids[9][2], listOfCuboids[9][5], texture, tintIndex, true, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[10][0], listOfCuboids[10][3], listOfCuboids[10][1], listOfCuboids[10][4], listOfCuboids[10][2], listOfCuboids[10][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[11][0], listOfCuboids[11][3], listOfCuboids[11][1], listOfCuboids[11][4], listOfCuboids[11][2], listOfCuboids[11][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[12][0], listOfCuboids[12][3], listOfCuboids[12][1], listOfCuboids[12][4], listOfCuboids[12][2], listOfCuboids[12][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[13][0], listOfCuboids[13][3], listOfCuboids[13][1], listOfCuboids[13][4], listOfCuboids[13][2], listOfCuboids[13][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[14][0], listOfCuboids[14][3], listOfCuboids[14][1], listOfCuboids[14][4], listOfCuboids[14][2], listOfCuboids[14][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[15][0], listOfCuboids[15][3], listOfCuboids[15][1], listOfCuboids[15][4], listOfCuboids[15][2], listOfCuboids[15][5], texture, tintIndex, true, false, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[16][0], listOfCuboids[16][3], listOfCuboids[16][1], listOfCuboids[16][4], listOfCuboids[16][2], listOfCuboids[16][5], texture, tintIndex, false, true, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[17][0], listOfCuboids[17][3], listOfCuboids[17][1], listOfCuboids[17][4], listOfCuboids[17][2], listOfCuboids[17][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[18][0], listOfCuboids[18][3], listOfCuboids[18][1], listOfCuboids[18][4], listOfCuboids[18][2], listOfCuboids[18][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[19][0], listOfCuboids[19][3], listOfCuboids[19][1], listOfCuboids[19][4], listOfCuboids[19][2], listOfCuboids[19][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[20][0], listOfCuboids[20][3], listOfCuboids[20][1], listOfCuboids[20][4], listOfCuboids[20][2], listOfCuboids[20][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[21][0], listOfCuboids[21][3], listOfCuboids[21][1], listOfCuboids[21][4], listOfCuboids[21][2], listOfCuboids[21][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[22][0], listOfCuboids[22][3], listOfCuboids[22][1], listOfCuboids[22][4], listOfCuboids[22][2], listOfCuboids[22][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[23][0], listOfCuboids[23][3], listOfCuboids[23][1], listOfCuboids[23][4], listOfCuboids[23][2], listOfCuboids[23][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[24][0], listOfCuboids[24][3], listOfCuboids[24][1], listOfCuboids[24][4], listOfCuboids[24][2], listOfCuboids[24][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[25][0], listOfCuboids[25][3], listOfCuboids[25][1], listOfCuboids[25][4], listOfCuboids[25][2], listOfCuboids[25][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[26][0], listOfCuboids[26][3], listOfCuboids[26][1], listOfCuboids[26][4], listOfCuboids[26][2], listOfCuboids[26][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[27][0], listOfCuboids[27][3], listOfCuboids[27][1], listOfCuboids[27][4], listOfCuboids[27][2], listOfCuboids[27][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[28][0], listOfCuboids[28][3], listOfCuboids[28][1], listOfCuboids[28][4], listOfCuboids[28][2], listOfCuboids[28][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[29][0], listOfCuboids[29][3], listOfCuboids[29][1], listOfCuboids[29][4], listOfCuboids[29][2], listOfCuboids[29][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[30][0], listOfCuboids[30][3], listOfCuboids[30][1], listOfCuboids[30][4], listOfCuboids[30][2], listOfCuboids[30][5], texture, tintIndex, false, false, true, true, false, true));
 						if (connectedLeft) {
 						}
 						if (connectedRight) {
 						}
 						break;
 					case NORTH:
+						int[][] listOfCuboids1 = {{0, 0, 15, 16, 1, 16},
+						        {0, 1, 14, 16, 2, 15},
+						        {0, 6, 9, 16, 7, 10},
+						        {0, 7, 8, 16, 8, 9},
+						        {0, 4, 11, 16, 5, 12},
+						        {0, 5, 10, 16, 6, 11},
+						        {0, 2, 13, 16, 3, 14},
+						        {0, 3, 12, 16, 4, 13},
+						        {0, 14, 1, 16, 15, 2},
+						        {0, 15, 0, 16, 16, 1},
+						        {0, 12, 3, 16, 13, 4},
+						        {0, 13, 2, 16, 14, 3},
+						        {0, 10, 5, 16, 11, 6},
+						        {0, 9, 6, 16, 10, 7},
+						        {0, 8, 7, 16, 9, 8},
+						        {0, 11, 4, 16, 12, 5},
+						        {0, 0, 0, 16, 15, 1},
+						        {0, 0, 14, 16, 1, 15},
+						        {0, 0, 9, 16, 6, 10},
+						        {0, 0, 8, 16, 7, 9},
+						        {0, 0, 11, 16, 4, 12},
+						        {0, 0, 10, 16, 5, 11},
+						        {0, 0, 13, 16, 2, 14},
+						        {0, 0, 12, 16, 3, 13},
+						        {0, 0, 1, 16, 14, 2},
+						        {0, 0, 3, 16, 12, 4},
+						        {0, 0, 2, 16, 13, 3},
+						        {0, 0, 5, 16, 10, 6},
+						        {0, 0, 6, 16, 9, 7},
+						        {0, 0, 7, 16, 8, 8},
+						        {0, 0, 4, 16, 11, 5}};
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[0][0], listOfCuboids1[0][3], listOfCuboids1[0][1], listOfCuboids1[0][4], listOfCuboids1[0][2], listOfCuboids1[0][5], texture, tintIndex, true, true, true, false, true, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[1][0], listOfCuboids1[1][3], listOfCuboids1[1][1], listOfCuboids1[1][4], listOfCuboids1[1][2], listOfCuboids1[1][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[2][0], listOfCuboids1[2][3], listOfCuboids1[2][1], listOfCuboids1[2][4], listOfCuboids1[2][2], listOfCuboids1[2][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[3][0], listOfCuboids1[3][3], listOfCuboids1[3][1], listOfCuboids1[3][4], listOfCuboids1[3][2], listOfCuboids1[3][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[4][0], listOfCuboids1[4][3], listOfCuboids1[4][1], listOfCuboids1[4][4], listOfCuboids1[4][2], listOfCuboids1[4][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[5][0], listOfCuboids1[5][3], listOfCuboids1[5][1], listOfCuboids1[5][4], listOfCuboids1[5][2], listOfCuboids1[5][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[6][0], listOfCuboids1[6][3], listOfCuboids1[6][1], listOfCuboids1[6][4], listOfCuboids1[6][2], listOfCuboids1[6][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[7][0], listOfCuboids1[7][3], listOfCuboids1[7][1], listOfCuboids1[7][4], listOfCuboids1[7][2], listOfCuboids1[7][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[8][0], listOfCuboids1[8][3], listOfCuboids1[8][1], listOfCuboids1[8][4], listOfCuboids1[8][2], listOfCuboids1[8][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[9][0], listOfCuboids1[9][3], listOfCuboids1[9][1], listOfCuboids1[9][4], listOfCuboids1[9][2], listOfCuboids1[9][5], texture, tintIndex, true, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[10][0], listOfCuboids1[10][3], listOfCuboids1[10][1], listOfCuboids1[10][4], listOfCuboids1[10][2], listOfCuboids1[10][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[11][0], listOfCuboids1[11][3], listOfCuboids1[11][1], listOfCuboids1[11][4], listOfCuboids1[11][2], listOfCuboids1[11][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[12][0], listOfCuboids1[12][3], listOfCuboids1[12][1], listOfCuboids1[12][4], listOfCuboids1[12][2], listOfCuboids1[12][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[13][0], listOfCuboids1[13][3], listOfCuboids1[13][1], listOfCuboids1[13][4], listOfCuboids1[13][2], listOfCuboids1[13][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[14][0], listOfCuboids1[14][3], listOfCuboids1[14][1], listOfCuboids1[14][4], listOfCuboids1[14][2], listOfCuboids1[14][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[15][0], listOfCuboids1[15][3], listOfCuboids1[15][1], listOfCuboids1[15][4], listOfCuboids1[15][2], listOfCuboids1[15][5], texture, tintIndex, true, true, true, false, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[16][0], listOfCuboids1[16][3], listOfCuboids1[16][1], listOfCuboids1[16][4], listOfCuboids1[16][2], listOfCuboids1[16][5], texture, tintIndex, true, true, false, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[17][0], listOfCuboids1[17][3], listOfCuboids1[17][1], listOfCuboids1[17][4], listOfCuboids1[17][2], listOfCuboids1[17][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[18][0], listOfCuboids1[18][3], listOfCuboids1[18][1], listOfCuboids1[18][4], listOfCuboids1[18][2], listOfCuboids1[18][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[19][0], listOfCuboids1[19][3], listOfCuboids1[19][1], listOfCuboids1[19][4], listOfCuboids1[19][2], listOfCuboids1[19][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[20][0], listOfCuboids1[20][3], listOfCuboids1[20][1], listOfCuboids1[20][4], listOfCuboids1[20][2], listOfCuboids1[20][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[21][0], listOfCuboids1[21][3], listOfCuboids1[21][1], listOfCuboids1[21][4], listOfCuboids1[21][2], listOfCuboids1[21][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[22][0], listOfCuboids1[22][3], listOfCuboids1[22][1], listOfCuboids1[22][4], listOfCuboids1[22][2], listOfCuboids1[22][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[23][0], listOfCuboids1[23][3], listOfCuboids1[23][1], listOfCuboids1[23][4], listOfCuboids1[23][2], listOfCuboids1[23][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[24][0], listOfCuboids1[24][3], listOfCuboids1[24][1], listOfCuboids1[24][4], listOfCuboids1[24][2], listOfCuboids1[24][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[25][0], listOfCuboids1[25][3], listOfCuboids1[25][1], listOfCuboids1[25][4], listOfCuboids1[25][2], listOfCuboids1[25][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[26][0], listOfCuboids1[26][3], listOfCuboids1[26][1], listOfCuboids1[26][4], listOfCuboids1[26][2], listOfCuboids1[26][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[27][0], listOfCuboids1[27][3], listOfCuboids1[27][1], listOfCuboids1[27][4], listOfCuboids1[27][2], listOfCuboids1[27][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[28][0], listOfCuboids1[28][3], listOfCuboids1[28][1], listOfCuboids1[28][4], listOfCuboids1[28][2], listOfCuboids1[28][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[29][0], listOfCuboids1[29][3], listOfCuboids1[29][1], listOfCuboids1[29][4], listOfCuboids1[29][2], listOfCuboids1[29][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids1[30][0], listOfCuboids1[30][3], listOfCuboids1[30][1], listOfCuboids1[30][4], listOfCuboids1[30][2], listOfCuboids1[30][5], texture, tintIndex, true, true, false, false, false, true));
 						if (connectedLeft) {
 						}
 						if (connectedRight) {
 						}
 						break;
 					case SOUTH:
-						int[][] listOfCuboids = {{0, 0, 0, 16, 1, 1},
+						int[][] listOfCuboids11 = {{0, 0, 0, 16, 1, 1},
 						        {0, 1, 1, 16, 2, 2},
 						        {0, 6, 6, 16, 7, 7},
 						        {0, 7, 7, 16, 8, 8},
@@ -258,43 +382,105 @@ public class RampFrameBakedModel implements IDynamicBakedModel {
 						        {0, 0, 9, 16, 9, 10},
 						        {0, 0, 8, 16, 8, 9},
 						        {0, 0, 11, 16, 11, 12}};
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[0][0], listOfCuboids[0][3], listOfCuboids[0][1], listOfCuboids[0][4], listOfCuboids[0][2], listOfCuboids[0][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[1][0], listOfCuboids[1][3], listOfCuboids[1][1], listOfCuboids[1][4], listOfCuboids[1][2], listOfCuboids[1][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[2][0], listOfCuboids[2][3], listOfCuboids[2][1], listOfCuboids[2][4], listOfCuboids[2][2], listOfCuboids[2][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[3][0], listOfCuboids[3][3], listOfCuboids[3][1], listOfCuboids[3][4], listOfCuboids[3][2], listOfCuboids[3][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[4][0], listOfCuboids[4][3], listOfCuboids[4][1], listOfCuboids[4][4], listOfCuboids[4][2], listOfCuboids[4][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[5][0], listOfCuboids[5][3], listOfCuboids[5][1], listOfCuboids[5][4], listOfCuboids[5][2], listOfCuboids[5][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[6][0], listOfCuboids[6][3], listOfCuboids[6][1], listOfCuboids[6][4], listOfCuboids[6][2], listOfCuboids[6][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[7][0], listOfCuboids[7][3], listOfCuboids[7][1], listOfCuboids[7][4], listOfCuboids[7][2], listOfCuboids[7][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[8][0], listOfCuboids[8][3], listOfCuboids[8][1], listOfCuboids[8][4], listOfCuboids[8][2], listOfCuboids[8][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[9][0], listOfCuboids[9][3], listOfCuboids[9][1], listOfCuboids[9][4], listOfCuboids[9][2], listOfCuboids[9][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[10][0], listOfCuboids[10][3], listOfCuboids[10][1], listOfCuboids[10][4], listOfCuboids[10][2], listOfCuboids[10][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[11][0], listOfCuboids[11][3], listOfCuboids[11][1], listOfCuboids[11][4], listOfCuboids[11][2], listOfCuboids[11][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[12][0], listOfCuboids[12][3], listOfCuboids[12][1], listOfCuboids[12][4], listOfCuboids[12][2], listOfCuboids[12][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[13][0], listOfCuboids[13][3], listOfCuboids[13][1], listOfCuboids[13][4], listOfCuboids[13][2], listOfCuboids[13][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[14][0], listOfCuboids[14][3], listOfCuboids[14][1], listOfCuboids[14][4], listOfCuboids[14][2], listOfCuboids[14][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[15][0], listOfCuboids[15][3], listOfCuboids[15][1], listOfCuboids[15][4], listOfCuboids[15][2], listOfCuboids[15][5], texture, tintIndex, true, true, true, true, true, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[16][0], listOfCuboids[16][3], listOfCuboids[16][1], listOfCuboids[16][4], listOfCuboids[16][2], listOfCuboids[16][5], texture, tintIndex, true, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[17][0], listOfCuboids[17][3], listOfCuboids[17][1], listOfCuboids[17][4], listOfCuboids[17][2], listOfCuboids[17][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[18][0], listOfCuboids[18][3], listOfCuboids[18][1], listOfCuboids[18][4], listOfCuboids[18][2], listOfCuboids[18][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[19][0], listOfCuboids[19][3], listOfCuboids[19][1], listOfCuboids[19][4], listOfCuboids[19][2], listOfCuboids[19][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[20][0], listOfCuboids[20][3], listOfCuboids[20][1], listOfCuboids[20][4], listOfCuboids[20][2], listOfCuboids[20][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[21][0], listOfCuboids[21][3], listOfCuboids[21][1], listOfCuboids[21][4], listOfCuboids[21][2], listOfCuboids[21][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[22][0], listOfCuboids[22][3], listOfCuboids[22][1], listOfCuboids[22][4], listOfCuboids[22][2], listOfCuboids[22][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[23][0], listOfCuboids[23][3], listOfCuboids[23][1], listOfCuboids[23][4], listOfCuboids[23][2], listOfCuboids[23][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[24][0], listOfCuboids[24][3], listOfCuboids[24][1], listOfCuboids[24][4], listOfCuboids[24][2], listOfCuboids[24][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[25][0], listOfCuboids[25][3], listOfCuboids[25][1], listOfCuboids[25][4], listOfCuboids[25][2], listOfCuboids[25][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[26][0], listOfCuboids[26][3], listOfCuboids[26][1], listOfCuboids[26][4], listOfCuboids[26][2], listOfCuboids[26][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[27][0], listOfCuboids[27][3], listOfCuboids[27][1], listOfCuboids[27][4], listOfCuboids[27][2], listOfCuboids[27][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[28][0], listOfCuboids[28][3], listOfCuboids[28][1], listOfCuboids[28][4], listOfCuboids[28][2], listOfCuboids[28][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[29][0], listOfCuboids[29][3], listOfCuboids[29][1], listOfCuboids[29][4], listOfCuboids[29][2], listOfCuboids[29][5], texture, tintIndex, false, false, true, true, false, true));
-						quads.addAll(ModelHelper.createCuboid16(listOfCuboids[30][0], listOfCuboids[30][3], listOfCuboids[30][1], listOfCuboids[30][4], listOfCuboids[30][2], listOfCuboids[30][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[0][0], listOfCuboids11[0][3], listOfCuboids11[0][1], listOfCuboids11[0][4], listOfCuboids11[0][2], listOfCuboids11[0][5], texture, tintIndex, true, true, false, true, true, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[1][0], listOfCuboids11[1][3], listOfCuboids11[1][1], listOfCuboids11[1][4], listOfCuboids11[1][2], listOfCuboids11[1][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[2][0], listOfCuboids11[2][3], listOfCuboids11[2][1], listOfCuboids11[2][4], listOfCuboids11[2][2], listOfCuboids11[2][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[3][0], listOfCuboids11[3][3], listOfCuboids11[3][1], listOfCuboids11[3][4], listOfCuboids11[3][2], listOfCuboids11[3][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[4][0], listOfCuboids11[4][3], listOfCuboids11[4][1], listOfCuboids11[4][4], listOfCuboids11[4][2], listOfCuboids11[4][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[5][0], listOfCuboids11[5][3], listOfCuboids11[5][1], listOfCuboids11[5][4], listOfCuboids11[5][2], listOfCuboids11[5][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[6][0], listOfCuboids11[6][3], listOfCuboids11[6][1], listOfCuboids11[6][4], listOfCuboids11[6][2], listOfCuboids11[6][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[7][0], listOfCuboids11[7][3], listOfCuboids11[7][1], listOfCuboids11[7][4], listOfCuboids11[7][2], listOfCuboids11[7][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[8][0], listOfCuboids11[8][3], listOfCuboids11[8][1], listOfCuboids11[8][4], listOfCuboids11[8][2], listOfCuboids11[8][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[9][0], listOfCuboids11[9][3], listOfCuboids11[9][1], listOfCuboids11[9][4], listOfCuboids11[9][2], listOfCuboids11[9][5], texture, tintIndex, true, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[10][0], listOfCuboids11[10][3], listOfCuboids11[10][1], listOfCuboids11[10][4], listOfCuboids11[10][2], listOfCuboids11[10][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[11][0], listOfCuboids11[11][3], listOfCuboids11[11][1], listOfCuboids11[11][4], listOfCuboids11[11][2], listOfCuboids11[11][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[12][0], listOfCuboids11[12][3], listOfCuboids11[12][1], listOfCuboids11[12][4], listOfCuboids11[12][2], listOfCuboids11[12][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[13][0], listOfCuboids11[13][3], listOfCuboids11[13][1], listOfCuboids11[13][4], listOfCuboids11[13][2], listOfCuboids11[13][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[14][0], listOfCuboids11[14][3], listOfCuboids11[14][1], listOfCuboids11[14][4], listOfCuboids11[14][2], listOfCuboids11[14][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[15][0], listOfCuboids11[15][3], listOfCuboids11[15][1], listOfCuboids11[15][4], listOfCuboids11[15][2], listOfCuboids11[15][5], texture, tintIndex, true, true, false, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[16][0], listOfCuboids11[16][3], listOfCuboids11[16][1], listOfCuboids11[16][4], listOfCuboids11[16][2], listOfCuboids11[16][5], texture, tintIndex, true, true, true, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[17][0], listOfCuboids11[17][3], listOfCuboids11[17][1], listOfCuboids11[17][4], listOfCuboids11[17][2], listOfCuboids11[17][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[18][0], listOfCuboids11[18][3], listOfCuboids11[18][1], listOfCuboids11[18][4], listOfCuboids11[18][2], listOfCuboids11[18][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[19][0], listOfCuboids11[19][3], listOfCuboids11[19][1], listOfCuboids11[19][4], listOfCuboids11[19][2], listOfCuboids11[19][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[20][0], listOfCuboids11[20][3], listOfCuboids11[20][1], listOfCuboids11[20][4], listOfCuboids11[20][2], listOfCuboids11[20][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[21][0], listOfCuboids11[21][3], listOfCuboids11[21][1], listOfCuboids11[21][4], listOfCuboids11[21][2], listOfCuboids11[21][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[22][0], listOfCuboids11[22][3], listOfCuboids11[22][1], listOfCuboids11[22][4], listOfCuboids11[22][2], listOfCuboids11[22][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[23][0], listOfCuboids11[23][3], listOfCuboids11[23][1], listOfCuboids11[23][4], listOfCuboids11[23][2], listOfCuboids11[23][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[24][0], listOfCuboids11[24][3], listOfCuboids11[24][1], listOfCuboids11[24][4], listOfCuboids11[24][2], listOfCuboids11[24][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[25][0], listOfCuboids11[25][3], listOfCuboids11[25][1], listOfCuboids11[25][4], listOfCuboids11[25][2], listOfCuboids11[25][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[26][0], listOfCuboids11[26][3], listOfCuboids11[26][1], listOfCuboids11[26][4], listOfCuboids11[26][2], listOfCuboids11[26][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[27][0], listOfCuboids11[27][3], listOfCuboids11[27][1], listOfCuboids11[27][4], listOfCuboids11[27][2], listOfCuboids11[27][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[28][0], listOfCuboids11[28][3], listOfCuboids11[28][1], listOfCuboids11[28][4], listOfCuboids11[28][2], listOfCuboids11[28][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[29][0], listOfCuboids11[29][3], listOfCuboids11[29][1], listOfCuboids11[29][4], listOfCuboids11[29][2], listOfCuboids11[29][5], texture, tintIndex, true, true, false, false, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids11[30][0], listOfCuboids11[30][3], listOfCuboids11[30][1], listOfCuboids11[30][4], listOfCuboids11[30][2], listOfCuboids11[30][5], texture, tintIndex, true, true, false, false, false, true));
 						if (connectedLeft) {
 						}
 						if (connectedRight) {
 						}
 						break;
 					case WEST:
+						int[][] listOfCuboids111 = {{15, 0, 0, 16, 1, 16},
+						        {14, 1, 0, 15, 2, 16},
+						        {9, 6, 0, 10, 7, 16},
+						        {8, 7, 0, 9, 8, 16},
+						        {11, 4, 0, 12, 5, 16},
+						        {10, 5, 0, 11, 6, 16},
+						        {13, 2, 0, 14, 3, 16},
+						        {12, 3, 0, 13, 4, 16},
+						        {1, 14, 0, 2, 15, 16},
+						        {0, 15, 0, 1, 16, 16},
+						        {3, 12, 0, 4, 13, 16},
+						        {2, 13, 0, 3, 14, 16},
+						        {5, 10, 0, 6, 11, 16},
+						        {6, 9, 0, 7, 10, 16},
+						        {7, 8, 0, 8, 9, 16},
+						        {4, 11, 0, 5, 12, 16},
+						        {0, 0, 0, 1, 15, 16},
+						        {14, 0, 0, 15, 1, 16},
+						        {9, 0, 0, 10, 6, 16},
+						        {8, 0, 0, 9, 7, 16},
+						        {11, 0, 0, 12, 4, 16},
+						        {10, 0, 0, 11, 5, 16},
+						        {13, 0, 0, 14, 2, 16},
+						        {12, 0, 0, 13, 3, 16},
+						        {1, 0, 0, 2, 14, 16},
+						        {3, 0, 0, 4, 12, 16},
+						        {2, 0, 0, 3, 13, 16},
+						        {5, 0, 0, 6, 10, 16},
+						        {6, 0, 0, 7, 9, 16},
+						        {7, 0, 0, 8, 8, 16},
+						        {4, 0, 0, 5, 11, 16}};
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[0][0], listOfCuboids111[0][3], listOfCuboids111[0][1], listOfCuboids111[0][4], listOfCuboids111[0][2], listOfCuboids111[0][5], texture, tintIndex, false, true, true, true, true, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[1][0], listOfCuboids111[1][3], listOfCuboids111[1][1], listOfCuboids111[1][4], listOfCuboids111[1][2], listOfCuboids111[1][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[2][0], listOfCuboids111[2][3], listOfCuboids111[2][1], listOfCuboids111[2][4], listOfCuboids111[2][2], listOfCuboids111[2][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[3][0], listOfCuboids111[3][3], listOfCuboids111[3][1], listOfCuboids111[3][4], listOfCuboids111[3][2], listOfCuboids111[3][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[4][0], listOfCuboids111[4][3], listOfCuboids111[4][1], listOfCuboids111[4][4], listOfCuboids111[4][2], listOfCuboids111[4][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[5][0], listOfCuboids111[5][3], listOfCuboids111[5][1], listOfCuboids111[5][4], listOfCuboids111[5][2], listOfCuboids111[5][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[6][0], listOfCuboids111[6][3], listOfCuboids111[6][1], listOfCuboids111[6][4], listOfCuboids111[6][2], listOfCuboids111[6][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[7][0], listOfCuboids111[7][3], listOfCuboids111[7][1], listOfCuboids111[7][4], listOfCuboids111[7][2], listOfCuboids111[7][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[8][0], listOfCuboids111[8][3], listOfCuboids111[8][1], listOfCuboids111[8][4], listOfCuboids111[8][2], listOfCuboids111[8][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[9][0], listOfCuboids111[9][3], listOfCuboids111[9][1], listOfCuboids111[9][4], listOfCuboids111[9][2], listOfCuboids111[9][5], texture, tintIndex, true, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[10][0], listOfCuboids111[10][3], listOfCuboids111[10][1], listOfCuboids111[10][4], listOfCuboids111[10][2], listOfCuboids111[10][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[11][0], listOfCuboids111[11][3], listOfCuboids111[11][1], listOfCuboids111[11][4], listOfCuboids111[11][2], listOfCuboids111[11][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[12][0], listOfCuboids111[12][3], listOfCuboids111[12][1], listOfCuboids111[12][4], listOfCuboids111[12][2], listOfCuboids111[12][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[13][0], listOfCuboids111[13][3], listOfCuboids111[13][1], listOfCuboids111[13][4], listOfCuboids111[13][2], listOfCuboids111[13][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[14][0], listOfCuboids111[14][3], listOfCuboids111[14][1], listOfCuboids111[14][4], listOfCuboids111[14][2], listOfCuboids111[14][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[15][0], listOfCuboids111[15][3], listOfCuboids111[15][1], listOfCuboids111[15][4], listOfCuboids111[15][2], listOfCuboids111[15][5], texture, tintIndex, false, true, true, true, true, false));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[16][0], listOfCuboids111[16][3], listOfCuboids111[16][1], listOfCuboids111[16][4], listOfCuboids111[16][2], listOfCuboids111[16][5], texture, tintIndex, true, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[17][0], listOfCuboids111[17][3], listOfCuboids111[17][1], listOfCuboids111[17][4], listOfCuboids111[17][2], listOfCuboids111[17][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[18][0], listOfCuboids111[18][3], listOfCuboids111[18][1], listOfCuboids111[18][4], listOfCuboids111[18][2], listOfCuboids111[18][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[19][0], listOfCuboids111[19][3], listOfCuboids111[19][1], listOfCuboids111[19][4], listOfCuboids111[19][2], listOfCuboids111[19][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[20][0], listOfCuboids111[20][3], listOfCuboids111[20][1], listOfCuboids111[20][4], listOfCuboids111[20][2], listOfCuboids111[20][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[21][0], listOfCuboids111[21][3], listOfCuboids111[21][1], listOfCuboids111[21][4], listOfCuboids111[21][2], listOfCuboids111[21][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[22][0], listOfCuboids111[22][3], listOfCuboids111[22][1], listOfCuboids111[22][4], listOfCuboids111[22][2], listOfCuboids111[22][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[23][0], listOfCuboids111[23][3], listOfCuboids111[23][1], listOfCuboids111[23][4], listOfCuboids111[23][2], listOfCuboids111[23][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[24][0], listOfCuboids111[24][3], listOfCuboids111[24][1], listOfCuboids111[24][4], listOfCuboids111[24][2], listOfCuboids111[24][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[25][0], listOfCuboids111[25][3], listOfCuboids111[25][1], listOfCuboids111[25][4], listOfCuboids111[25][2], listOfCuboids111[25][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[26][0], listOfCuboids111[26][3], listOfCuboids111[26][1], listOfCuboids111[26][4], listOfCuboids111[26][2], listOfCuboids111[26][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[27][0], listOfCuboids111[27][3], listOfCuboids111[27][1], listOfCuboids111[27][4], listOfCuboids111[27][2], listOfCuboids111[27][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[28][0], listOfCuboids111[28][3], listOfCuboids111[28][1], listOfCuboids111[28][4], listOfCuboids111[28][2], listOfCuboids111[28][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[29][0], listOfCuboids111[29][3], listOfCuboids111[29][1], listOfCuboids111[29][4], listOfCuboids111[29][2], listOfCuboids111[29][5], texture, tintIndex, false, false, true, true, false, true));
+						quads.addAll(ModelHelper.createCuboid16(listOfCuboids111[30][0], listOfCuboids111[30][3], listOfCuboids111[30][1], listOfCuboids111[30][4], listOfCuboids111[30][2], listOfCuboids111[30][5], texture, tintIndex, false, false, true, true, false, true));
 						if (connectedLeft) {
 						}
 						if (connectedRight) {
