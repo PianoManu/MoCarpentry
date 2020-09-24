@@ -10,5 +10,6 @@ public class RenderSetup {
         RenderTypeLookup.setRenderLayer(RegistrationHandler.VERTICAL_STAIRS_FRAME.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegistrationHandler.POST_FRAME.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegistrationHandler.RAMP_FRAME.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(RegistrationHandler.ARCH_FRAME.get(), RenderType.getTranslucent());
     }
 }

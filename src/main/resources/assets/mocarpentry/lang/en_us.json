@@ -2,6 +2,8 @@
   "block.mocarpentry.pillar_frame": "Pillar Frame",
   "block.mocarpentry.vertical_stairs_frame": "Vertical Stairs Frame",
   "block.mocarpentry.post_frame": "Post Frame",
+  "block.mocarpentry.ramp_frame": "Ramp Frame",
+  "block.mocarpentry.arch_frame": "Arch Frame",
 
   "itemGroup.mocarpentry": "Mo'Carpentry"
 }
