@@ -1,7 +1,8 @@
 {
-"block.mocarpentry.pillar_frame": "Pillar Frame",
-"block.mocarpentry.vertical_stairs_frame": "Vertical Stairs Frame",
-"block.mocarpentry.post_frame": "Post Frame",
+  "block.mocarpentry.pillar_frame": "Châssis de pillier",
+  "block.mocarpentry.vertical_stairs_frame": "Châssis d'escalier vertical",
+  "block.mocarpentry.post_frame": "Châssis de poteau",
+  "block.mocarpentry.post_frame": "Châssis de rampe",
 
-"itemGroup.mocarpentry": "Mo'Carpentry"
+  "itemGroup.mocarpentry": "Mo'Carpentry"
 }

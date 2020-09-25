@@ -1361,7 +1361,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		
 		return blockstate.with(CONNECTED_RIGHT, getRightConnection(blockstate, worldIn, blockpos))
 				.with(CONNECTED_LEFT, getLeftConnection(blockstate, worldIn, blockpos))
-				.with(SHAPE, getShapeProperty(blockstate, context.getWorld(), blockpos));
+				.with(SHAPE, getShapeProperty(blockstate, worldIn, blockpos));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -1369,7 +1369,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
 		if (stateIn.get(WATERLOGGED)) {
 			worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
 		}
-		
+
 		return facing.getAxis().isHorizontal() ?
 				stateIn.with(CONNECTED_RIGHT, getRightConnection(stateIn, worldIn, currentPos))
 				.with(CONNECTED_LEFT, getLeftConnection(stateIn, worldIn, currentPos))
@@ -1431,7 +1431,7 @@ public class RampFrame extends FrameBlock implements IWaterLoggable {
         if (tileentity1 instanceof FrameBlockTile) {
             frameTileEntity1 = (FrameBlockTile) tileentity1;
         }
-		if (isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1).equals(SameBlock.TRUE) &&
+		if (isBlockStairs(state, frameTileEntity, blockstate, frameTileEntity1) != SameBlock.FALSE &&
 				state.get(HALF) == blockstate.get(HALF)) {
 			Direction direction1 = blockstate.get(FACING);
 			if (direction1.getAxis() != state.get(FACING).getAxis() &&
