@@ -3,6 +3,7 @@
   "block.mocarpentry.vertical_stairs_frame": "Châssis d'escalier vertical",
   "block.mocarpentry.post_frame": "Châssis de poteau",
   "block.mocarpentry.post_frame": "Châssis de rampe",
+  "block.mocarpentry.arch_frame": "Châssis d'arche",
 
   "itemGroup.mocarpentry": "Mo'Carpentry"
 }

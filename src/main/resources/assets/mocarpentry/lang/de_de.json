@@ -2,6 +2,8 @@
 "block.mocarpentry.pillar_frame": "Säulenrahmen",
 "block.mocarpentry.vertical_stairs_frame": "Treppenrahmen (vertikal)",
 "block.mocarpentry.post_frame": "Pfeilerrahmen",
+"block.mocarpentry.ramp_frame": "Rampenrahmen",
+"block.mocarpentry.arch_frame": "Bogenrahmen",
 
 "itemGroup.mocarpentry": "Mo'Carpentry"
 }

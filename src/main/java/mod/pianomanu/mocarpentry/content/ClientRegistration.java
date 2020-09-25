@@ -1,10 +1,7 @@
 package mod.pianomanu.mocarpentry.content;
 
 import mod.pianomanu.mocarpentry.MoCarpentry;
-import mod.pianomanu.mocarpentry.content.models.loader.PillarFrameModelLoader;
-import mod.pianomanu.mocarpentry.content.models.loader.PostFrameModelLoader;
-import mod.pianomanu.mocarpentry.content.models.loader.RampFrameModelLoader;
-import mod.pianomanu.mocarpentry.content.models.loader.VerticalStairsFrameModelLoader;
+import mod.pianomanu.mocarpentry.content.models.loader.*;
 import mod.pianomanu.mocarpentry.utils.RenderSetup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,7 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
  *
  * @author KiroTheBlueFox
  * @author PianoManu
- * @version 1.1 09/21/20
+ * @version 1.2 09/24/20
  */
 @EventBusSubscriber(modid = MoCarpentry.MODID, value = Dist.CLIENT, bus = Bus.MOD)
 public class ClientRegistration {
@@ -35,6 +32,7 @@ public class ClientRegistration {
         ModelLoaderRegistry.registerLoader(loc("vertical_stairs_frame_loader"), new VerticalStairsFrameModelLoader());
         ModelLoaderRegistry.registerLoader(loc("post_frame_loader"), new PostFrameModelLoader());
         ModelLoaderRegistry.registerLoader(loc("ramp_frame_loader"), new RampFrameModelLoader());
+        ModelLoaderRegistry.registerLoader(loc("arch_frame_loader"), new ArchFrameModelLoader());
     }
 
     private static ResourceLocation loc(String path) {

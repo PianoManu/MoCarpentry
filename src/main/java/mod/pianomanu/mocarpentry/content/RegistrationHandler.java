@@ -1,16 +1,8 @@
 package mod.pianomanu.mocarpentry.content;
 
-import static mod.pianomanu.blockcarpentry.setup.Registration.FRAMEBLOCK;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.mocarpentry.MoCarpentry;
-import mod.pianomanu.mocarpentry.content.blocks.PillarFrame;
-import mod.pianomanu.mocarpentry.content.blocks.PostFrame;
-import mod.pianomanu.mocarpentry.content.blocks.RampFrame;
-import mod.pianomanu.mocarpentry.content.blocks.VerticalStairsFrame;
+import mod.pianomanu.mocarpentry.content.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -26,13 +18,17 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import static mod.pianomanu.blockcarpentry.setup.Registration.FRAMEBLOCK;
 
 /**
  * just some standard registration class
  *
  * @author KiroTheBlueFox
  * @author PianoManu
- * @version 1.2 09/21/20
+ * @version 1.3 09/24/20
  */
 @EventBusSubscriber(modid = MoCarpentry.MODID, bus = Bus.MOD)
 public class RegistrationHandler {
@@ -44,6 +40,7 @@ public class RegistrationHandler {
     public static final RegistryObject<VerticalStairsFrame> VERTICAL_STAIRS_FRAME = BLOCKS.register("vertical_stairs_frame", () -> new VerticalStairsFrame(Block.Properties.from(FRAMEBLOCK.get())));
     public static final RegistryObject<PostFrame> POST_FRAME = BLOCKS.register("post_frame", () -> new PostFrame(Block.Properties.from(FRAMEBLOCK.get())));
     public static final RegistryObject<RampFrame> RAMP_FRAME = BLOCKS.register("ramp_frame", () -> new RampFrame(Block.Properties.from(FRAMEBLOCK.get()), Blocks.OAK_PLANKS.getDefaultState()));
+    public static final RegistryObject<ArchFrame> ARCH_FRAME = BLOCKS.register("arch_frame", ArchFrame::new);
 
 
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MoCarpentry.MODID);
@@ -51,6 +48,7 @@ public class RegistrationHandler {
     public static final RegistryObject<Item> VERTICAL_STAIRS_FRAME_ITEM = ITEMS.register("vertical_stairs_frame", () -> new BlockItem(VERTICAL_STAIRS_FRAME.get(), new Item.Properties().group(MoCarpentry.MoCarpentryItemGroup.MO_CARPENTRY)));
     public static final RegistryObject<Item> POST_FRAME_ITEM = ITEMS.register("post_frame", () -> new BlockItem(POST_FRAME.get(), new Item.Properties().group(MoCarpentry.MoCarpentryItemGroup.MO_CARPENTRY)));
     public static final RegistryObject<Item> RAMP_FRAME_ITEM = ITEMS.register("ramp_frame", () -> new BlockItem(RAMP_FRAME.get(), new Item.Properties().group(MoCarpentry.MoCarpentryItemGroup.MO_CARPENTRY)));
+    public static final RegistryObject<Item> ARCH_FRAME_ITEM = ITEMS.register("arch_frame", () -> new BlockItem(ARCH_FRAME.get(), new Item.Properties().group(MoCarpentry.MoCarpentryItemGroup.MO_CARPENTRY)));
 
 
     private static final DeferredRegister<TileEntityType<?>> TILES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, MoCarpentry.MODID);
@@ -58,6 +56,7 @@ public class RegistrationHandler {
     public static final RegistryObject<TileEntityType<FrameBlockTile>> VERTICAL_STAIRS_FRAME_TILE = TILES.register("vertical_stairs_frame", () -> TileEntityType.Builder.create(FrameBlockTile::new, VERTICAL_STAIRS_FRAME.get()).build(null));
     public static final RegistryObject<TileEntityType<FrameBlockTile>> POST_FRAME_TILE = TILES.register("post_frame", () -> TileEntityType.Builder.create(FrameBlockTile::new, POST_FRAME.get()).build(null));
     public static final RegistryObject<TileEntityType<FrameBlockTile>> RAMP_FRAME_TILE = TILES.register("ramp_frame", () -> TileEntityType.Builder.create(FrameBlockTile::new, RAMP_FRAME.get()).build(null));
+    public static final RegistryObject<TileEntityType<FrameBlockTile>> ARCH_FRAME_TILE = TILES.register("arch_frame", () -> TileEntityType.Builder.create(FrameBlockTile::new, ARCH_FRAME.get()).build(null));
 
     //TODO do we really need those two subscribe events? I prefer using Deferred Registers
     @SubscribeEvent
