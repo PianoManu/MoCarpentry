@@ -1,8 +1,17 @@
 package mod.pianomanu.mocarpentry.content;
 
+import static mod.pianomanu.blockcarpentry.setup.Registration.FRAMEBLOCK;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import mod.pianomanu.blockcarpentry.tileentity.FrameBlockTile;
 import mod.pianomanu.mocarpentry.MoCarpentry;
-import mod.pianomanu.mocarpentry.content.blocks.*;
+import mod.pianomanu.mocarpentry.content.blocks.ArchFrame;
+import mod.pianomanu.mocarpentry.content.blocks.PillarFrame;
+import mod.pianomanu.mocarpentry.content.blocks.PostFrame;
+import mod.pianomanu.mocarpentry.content.blocks.RampFrame;
+import mod.pianomanu.mocarpentry.content.blocks.VerticalStairsFrame;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -18,10 +27,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import static mod.pianomanu.blockcarpentry.setup.Registration.FRAMEBLOCK;
 
 /**
  * just some standard registration class

@@ -2,7 +2,7 @@ package mod.pianomanu.mocarpentry.content.models.geometry;
 
 import com.mojang.datafixers.util.Pair;
 import mod.pianomanu.blockcarpentry.bakedmodels.FrameBakedModel;
-import mod.pianomanu.mocarpentry.content.models.ArchFrameBakedModel;
+import mod.pianomanu.mocarpentry.content.models.baked.ArchFrameBakedModel;
 import net.minecraft.client.renderer.model.*;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
