@@ -167,7 +167,7 @@
         },
         { "when": { "facing" : "west" , "half" : "bottom"  , "right" : true, "contains_block" : false},
             "apply": { "model": "mocarpentry:block/ramp_frame_empty_right" , "uvlock": true }
-        }
+        },
         { "when": { "contains_block" : true },
             "apply": { "model": "mocarpentry:block/ramp_frame" }
         }

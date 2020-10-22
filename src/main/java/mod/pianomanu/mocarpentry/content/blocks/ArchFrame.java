@@ -64,12 +64,14 @@ public class ArchFrame extends ArchBlock implements IWaterLoggable {
                     BlockState handBlockState = ((BlockItem) item.getItem()).getBlock().getDefaultState();
                     ((FrameBlockTile) tileEntity).setMimic(handBlockState);
                     this.insertBlock(world, pos, state, handBlockState);
-                    player.getHeldItem(hand).setCount(count - 1);
+                    if (!player.isCreative())
+                        player.getHeldItem(hand).setCount(count - 1);
                 }
             }
 
             if (player.getHeldItem(hand).getItem() == Registration.HAMMER.get() || !BCModConfig.HAMMER_NEEDED.get() && player.isSneaking()) {
-                this.dropContainedBlock(world, pos);
+                if (!player.isCreative())
+                    this.dropContainedBlock(world, pos);
                 state = state.with(CONTAINS_BLOCK, Boolean.FALSE);
                 world.setBlockState(pos, state, 2);
             }
